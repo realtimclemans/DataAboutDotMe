@@ -1,5 +1,5 @@
 # DataAbout.me
-DataAbout.me aims to become the most important for-profit tech company in the world by providing identity verification, authentication, and authorization services, secure no-knowledge cloud data storage of personal and business data, and useful carefully designed apps.
+**DataAbout.me** aims to become the most important for-profit tech company in the world by providing identity verification and authorization services, secure no-knowledge cloud data storage of personal and business data, and extremely useful carefully developed apps.
 
 It will offer a browser plugin to autofill fields and archive web history and webpages. It will offer third parties who pass our security and privacy review OAuth access. To solve the problem where app developers are harvesting data from sites, like Facebook via OAuth, and selling it, we'll provide a secure hosted app platform where personal data is never disclosed to the app maker and we're responsible for security, privacy, safety, reliability, and accessibility regulatory compliance.
 
