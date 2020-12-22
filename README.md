@@ -6,14 +6,15 @@ It will offer a browser plugin to autofill fields and archive web history and we
 ## Founding developer Tim Clemans
 
 Written by Tim: Hi there! I'm Tim Clemans and I'm on a mission to solve the world's biggest problems using technology. I'm inspired by and steal the best parts of:
-* Elon Musk for launching a thousand satellites to provide fast internet worldwide
+* Elon Musk for launching a thousand satellites to provide fast internet worldwide, electronic cars, and providing full self driving to beta test customers
 * Bill Gates for Microsoft and Gates Foundation
 * Todd Bishop for taking me out to dinner and recording me chat about how I'm going to cause him to hire writers to do nothing but write about me
 * Haben Girma for accessibility advocacy
 * Molly Burke for accessibility advocacy
 * Rikki Poynter for #nomorecraptions
 * Mr. Beast for consistently getting millions of views, opening up 300 fast food deliverly locations overnight, giving away tons of money and stuff
-* Candace Faber for helping me with my mental health
+* Candace Faber for being an awesome friend and helping me with my mental health
+* Chris Metcalf for being super awesome!!! Love that guy.
 * Frank Wang for creating cheap awesome drones, note I don't support DJI's involvement with human rights violations
 * Sean Whitcomb for being my boss in 2015 and continuing to support me
 * Whitney Wolfe Herd for creating the woman write first online dating site Bumble
