@@ -1,0 +1,7 @@
+
+    <div id="signin"><h2>Signin</h2>
+        <form method="post" action="/signin/">
+            {{ signin_form.csrf_token }}
+        <p class="warning"><strong>Major security warning:</strong> Do not signin if you are using someone else's computer/tablet/phone or you've allowed someone else to use it even if you're married to that person because there could be spyware on it.</p>
+        <strong>Email address:</strong><input type="password" /><br/><strong>Password:</strong> <input type="password">{{ signin_form.recaptcha }} </form></div>    
+    
