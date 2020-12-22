@@ -58,7 +58,9 @@ def verify_email():
         print('sending response', repr(sending_response))
         if sending_response == 'Forbidden':
             return jsonify({'success': False})
-    return jsonify({'success': True}) # regardless if already verified we claim success because we don't disclose to attackers email addresses
+        return jsonify({'success': True}) # regardless if already verified we claim success because we don't disclose to attackers email addresses
+    else:
+        return jsonify({'success': False, 'is_captcha_valid': False})
 
 @app.route('/static/<path:path>')
 def send_static(path):
