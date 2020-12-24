@@ -147,6 +147,7 @@ It will offer a browser plugin to autofill fields and archive web history and we
 ## Founding developer Tim Clemans
 
 Written by Tim: Hi there! I'm Tim Clemans and I'm on a mission to solve the world's biggest problems using technology. I'm inspired by and steal the best parts of:
+* Chris Lee of [Launch School](https://launchschool.com) for positively influencing me more than any other person
 * Elon Musk for launching a thousand satellites to provide fast internet worldwide, electronic cars, and providing full self driving to beta test customers
 * Bill Gates for Microsoft and Gates Foundation
 * William Stein of [CoCalc.com](https://cocalc.com) for helping me since meeting him as a high schooler
