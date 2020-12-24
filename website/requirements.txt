@@ -3,3 +3,6 @@ Flask-WTF
 psycopg2
 Flask-SQLAlchemy
 Flask-Migrate
+azure-cognitiveservices-vision-computervision
+Pillow
+azure-cognitiveservices-vision-face
