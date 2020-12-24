@@ -28,31 +28,25 @@ def send_verification_email(email_address, verification_token):
 			"subject": "Verify your email address",
 			"html": '<a href="https://%s/verify_email/?token=%s">Click here to Verify</a> or copy paste' % (os.getenv('DOMAIN_NAME'), verification_token)}).text
 
-@app.route('/send_email_verification/', methods=['POST'])
-def verify_email():
-    
-    
-    signup_form = SignupForm()
-    if signup_form.validate_on_submit():
-        verification_token = create_verification_token()
-        email_address = request.form.get('email_address')
-        sending_response = send_verification_email(email_address, verification_token)
-        print('sending response', repr(sending_response))
-        if sending_response == 'Forbidden':
-            return jsonify({'success': False})
-        return jsonify({'success': True}) # regardless if already verified we claim success because we don't disclose to attackers email addresses
-    else:
-        return jsonify({'success': False, 'is_captcha_valid': False})
-
 @app.route('/static/<path:path>')
 def send_static(path):
     return send_from_directory('static', path)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-
     signup_form = SignupForm()
-    return render_template("index.html", signup_form=signup_form)
+    if request.form:
+        if signup_form.validate_on_submit():
+            verification_token = create_verification_token()
+            email_address = request.form.get('email_address')
+            sending_response = send_verification_email(email_address, verification_token)
+            print('sending response', repr(sending_response))
+            if sending_response == 'Forbidden':
+                return render_template("index.html", signup_form=signup_form, sending_error=True, is_captcha_valid=True)
+            return render_template("index.html", signup_form=signup_form, sending_error=False, sent_verification=True, is_captcha_valid=True) # regardless if already verified we claim success because we don't disclose to attackers email addresses
+        else:
+            return render_template("index.html", signup_form=signup_form, is_captcha_valid=False)
+    return render_template("index.html", signup_form=signup_form, is_captcha_valid=True)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)  

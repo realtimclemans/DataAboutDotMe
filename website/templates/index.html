@@ -1,6 +1,6 @@
 <html>
     <head> 
-    <title>DataAbout.me: The world's most important startup</title>
+    <title>DataAbout.me: The transparency, e-memory, security, safety, and privacy company</title>
     <meta http-equiv="cache-control" content="max-age=0">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
@@ -13,17 +13,22 @@
 
 <link rel="shortcut icon" type="image/ico" href="/static/favicon.ico"/>
     </head>
-    <body><h1><img src="/static/logo.png" alt="DataAbout.me logo with a cloud, laptop, and lock" style="height:40px;float:left;margin-right:10px">DataAbout.me: The world's most important startup</h1>
+    <body><h1><img src="/static/logo.png" alt="DataAbout.me logo with a cloud, laptop, and lock" style="height:40px;float:left;margin-right:10px">DataAbout.me: The transparency, e-memory, security, and privacy company<br/>In an intense competition with <a href="https://axon.com">Axon</a> to be the world’s premier public safety and civil and criminal justice organization</h1>
     <img src="/static/tim_clemans_behind_laptop_holding_echo.jpg" style="float:left; margin: 0 10px 10px 0;width:250px">
     
     <h2>About us</h2>
-    <p>Launched on December 23, 2020 by the Real Tim Clemans Startup Launch Company, <strong>DataAbout.me</strong> provide secure no-knowledge personal and business data storage, tools for recording, storing, retriving, analyzing, and selling (if you want to) all of your personal and business data that you want to store, useful secure apps that respect your privacy, identity verification, and public profiles.</h1>
+    <p>Started on December 21, 2020 by the <a href="https://realtimclemans.com">Real Tim Clemans Startup Launch Company</a>, <strong>DataAbout.me</strong> provide secure no-knowledge personal and business data storage, tools for recording, storing, retriving, analyzing, and selling (if you want to) all of your personal and business data that you want to store, useful secure apps that respect your privacy, identity verification, and public profiles.</h1>
     <h2>Signup for $9.99 a terabyte per month</h2>
     <p>We charge $9.99/month for each terabyte of storage you need. Our minimum monthly charge is $9.99/month plus tax for Washington State residents. Your data will be stored on machines operated by <a href="https://wasabi.com">Wasabi</a>. Our markup is $4. We use that money to hire staff to manually verify the identity of our customers, run the business, and securely develop and maintain our features and apps. Your data will be encrypted using your password. Our site ensures that you create a password by using a method designed by Bruce Schneier where you use the first letter of each word in a sentence. Your password is never sent to our machines so there will be no way for us or anyone else including the government to access your data unless you decrypt the data in response to a court issued warrant for your data. We require you to enter a code from an app on one of your trusted devices to login so even if the bad guys get your password they can't login and retrive your encrypted data to unencrypt with your password.</p>
     <p>First we need to verify your email address. To make it harder for the bad guys to launch trial-and-error guessing attacks we need you to prove that you are a human by checking the checkbox and then selecting the matching images. If you are blind you can click on the voice button for a code to be read out loud that you type in. If you are deaf-blind please email us at <a href="mailto:tim@realtimclemans.com?subject=Unable to use captcha">tim@realtimclemans.com</a> stating you unable to use captcha on DataAbout.me.</p>
-    <form method="POST" action="/send_email_verification/"> 
+    <form method="POST" action="/"> 
         {{ signup_form.csrf_token }}
-        
+        {% if sending_error %}
+        We were not able to send a verification email because of a server issue. Please email <a href="mailto:tim@realtimclemans.com">tim@realtimclemans.com</a> and we'll let you know when it is fixed.
+{% elif sent_verification  %}
+We sent you a verification email.<br/>
+        {% else %}
+        {% if not is_captcha_valid %}You did not pass the not a robot test<br/>{% endif %}
          <strong>{{ signup_form.email_address.label }}:</strong>
          {{ signup_form.email_address }}
          <ul> 
@@ -33,6 +38,7 @@
          </ul>
          {{ signup_form.recaptcha }}<br/>
          {{ signup_form.submit }}
+         {% endif %}
     </form>
     </body>
     </html>     
