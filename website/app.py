@@ -41,6 +41,8 @@ def home():
             email_address = request.form.get('email_address')
             sending_response = send_verification_email(email_address, verification_token)
             print('sending response', repr(sending_response))
+            if '+' in email_address:
+                return render_template("index.html", signup_form=signup_form, is_plus_sign_in_email=True, sending_error=False, is_captcha_valid=True)
             if sending_response == 'Forbidden':
                 return render_template("index.html", signup_form=signup_form, sending_error=True, is_captcha_valid=True)
             return render_template("index.html", signup_form=signup_form, sending_error=False, sent_verification=True, is_captcha_valid=True) # regardless if already verified we claim success because we don't disclose to attackers email addresses

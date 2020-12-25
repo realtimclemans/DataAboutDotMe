@@ -15,7 +15,7 @@
     </head>
     <body><h1><img src="/static/logo.png" alt="DataAbout.me logo with a cloud, laptop, and lock" style="height:40px;float:left;margin-right:10px">DataAbout.me: The transparency, e-memory, security, and privacy company<br/>In an intense competition with <a href="https://axon.com">Axon</a> to be the world’s premier public safety and civil and criminal justice organization</h1>
     <img src="/static/tim_clemans_behind_laptop_holding_echo.jpg" style="float:left; margin: 0 10px 10px 0;width:250px">
-    
+    <h2><span style="color:red">Warning:</span> This is a very early beta product that has not been audited by a third party</h2>
     <h2>About us</h2>
     <p>Started on December 21, 2020 by the <a href="https://realtimclemans.com">Real Tim Clemans Startup Launch Company</a>, <strong>DataAbout.me</strong> provide secure no-knowledge personal and business data storage, tools for recording, storing, retriving, analyzing, and selling (if you want to) all of your personal and business data that you want to store, useful secure apps that respect your privacy, identity verification, and public profiles.</h1>
     <h2>Signup for $9.99 a terabyte per month</h2>
@@ -24,13 +24,14 @@
     <form method="POST" action="/"> 
         {{ signup_form.csrf_token }}
         {% if sending_error %}
-        We were not able to send a verification email because of a server issue. Please email <a href="mailto:tim@realtimclemans.com">tim@realtimclemans.com</a> and we'll let you know when it is fixed.
+        <strong>Error:</strong> We were not able to send a verification email because of a server issue. Please email <a href="mailto:tim@realtimclemans.com">tim@realtimclemans.com</a> and we'll let you know when it is fixed.
 {% elif sent_verification  %}
 We sent you a verification email.<br/>
         {% else %}
-        {% if not is_captcha_valid %}You did not pass the not a robot test<br/>{% endif %}
+        {% if not is_captcha_valid %}<strong>Error:</strong> You did not pass the not a robot test<br/>{% endif %}
+        {% if is_plus_sign_in_email %}<strong>Error:</strong> You can't have the Gmail + sign in your email<br/>{% endif %}
          <strong>{{ signup_form.email_address.label }}:</strong>
-         {{ signup_form.email_address }}
+         {{ signup_form.email_address }} <strong>Note:</strong> We do not allow the use of Gmail's + sign because we have to ensure only one account per email:
          <ul> 
          {% for error in signup_form.email_address.error %}
             <li style="coloured:red;">{{ error }}</li> 
