@@ -8,6 +8,7 @@ class Customer(db.Model):
 
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True)
     is_suspended = db.Column(db.Boolean(), default=False)
+    reason_for_suspension = db.Column(db.String(), nullable=True)
     is_email_address_verified = db.Column(db.Boolean(), default=False)
     is_identity_verified = db.Column(db.Boolean(), default=False)
     email_address_salt = db.Column(db.String())
