@@ -10,6 +10,7 @@ class Customer(db.Model):
     is_suspended = db.Column(db.Boolean(), default=False)
     reason_for_suspension = db.Column(db.String(), nullable=True)
     is_email_address_verified = db.Column(db.Boolean(), default=False)
+    verification_token = db.Column(db.String())
     is_identity_verified = db.Column(db.Boolean(), default=False)
     email_address_salt = db.Column(db.String())
     email_address_hash = db.Column(db.String())
@@ -17,6 +18,7 @@ class Customer(db.Model):
     password_hash = db.Column(db.String(), nullable=True)
     unique_identifiers = db.Column(JSON, default={}) # example keys: US_state_ID_number, US_state_that_issued_ID, US_social_security_number
 
-    def __init__(self, email_address_salt, email_address_hash):
+    def __init__(self, email_address_salt, email_address_hash, verification_token):
         self.email_address_salt = email_address_salt
         self.email_address_hash = email_address_hash
+        self.verification_token = verification_token
