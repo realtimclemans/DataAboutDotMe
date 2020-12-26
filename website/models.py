@@ -16,3 +16,7 @@ class Customer(db.Model):
     password_salt = db.Column(db.String(), nullable=True)
     password_hash = db.Column(db.String(), nullable=True)
     unique_identifiers = db.Column(JSON, default={}) # example keys: US_state_ID_number, US_state_that_issued_ID, US_social_security_number
+
+    def __init__(self, email_address_salt, email_address_hash):
+        self.email_address_salt = email_address_salt
+        self.email_address_hash = email_address_hash
