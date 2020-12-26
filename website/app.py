@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify, render_template, request, send_from_d
 from form import SignupForm, SigninForm
 import random
 import string
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 
@@ -14,6 +15,10 @@ app.config['RECAPTCHA_USE_SSL'] = True
 app.config['RECAPTCHA_PUBLIC_KEY'] = os.getenv('RECAPTCHA_PUBLIC_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.getenv('RECAPTCHA_PRIVATE_KEY')
 app.config['RECAPTCHA_OPTIONS']= {'theme':'black'}
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+print(app.config['SQLALCHEMY_DATABASE_URI'])
+db = SQLAlchemy(app)
 
 def create_verification_token():
     letters = string.ascii_lowercase
