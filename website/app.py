@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify, render_template, request, send_from_d
 from form import SignupForm, SigninForm
 import random
 import string
+import re
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='', static_folder='static')
@@ -44,12 +45,16 @@ def home():
         if signup_form.validate_on_submit():
             verification_token = create_verification_token()
             email_address = request.form.get('email_address')
-            sending_response = send_verification_email(email_address, verification_token)
-            print('sending response', repr(sending_response))
+
             if '+' in email_address:
                 return render_template("index.html", signup_form=signup_form, is_plus_sign_in_email=True, sending_error=False, is_captcha_valid=True)
+            regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+            if not re.search(regex, email_address): 
+                return render_template("index.html", signup_form=signup_form, is_plus_sign_in_email=False, is_email_address_invalid=True, sending_error=False, is_captcha_valid=True)
             if sending_response == 'Forbidden':
                 return render_template("index.html", signup_form=signup_form, sending_error=True, is_captcha_valid=True)
+            
+            sending_response = send_verification_email(email_address, verification_token)
             return render_template("index.html", signup_form=signup_form, sending_error=False, sent_verification=True, is_captcha_valid=True) # regardless if already verified we claim success because we don't disclose to attackers email addresses
         else:
             return render_template("index.html", signup_form=signup_form, is_captcha_valid=False)
