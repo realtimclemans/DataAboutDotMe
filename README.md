@@ -1,6 +1,9 @@
 # DataAbout.me
 Started by [The Real Tim Clemans Startup Launch Company](https://realtimclemans.com) on December 21, 2020, **[DataAbout.me](https://dataabout.me)** aims to become the most important for-profit tech company in the world by providing identity verification and authorization services, online voting, digital criminal, civil law, and organization policy violation prevention, retail store theft prevention, swatting prevention, non-digital criminal, civil law, and organization policy violation reporting and prevention attempts, free public profile pages for people and organizations with all legally publishable government public records data, customer feedback, blog and microblog, and organized pricing data, secure no-knowledge cloud data storage of all personal and business data each customer wants to store, and extremely useful carefully developed apps. It will use all of its profits in the first twenty years to lobby all governments to mandate identity verification and archival, for customer use, of all customer data and data the company generates about its customers through its platform.
 
+It will offer a browser plugin to autofill fields and archive web history and webpages. It will offer third parties OAuth permissions to those who pass our security and privacy review process. To solve the problem where app developers are harvesting data from sites, like Facebook via OAuth, and selling it, we'll provide a secure managed app platform where personal data is never disclosed to the app maker and we're responsible for security, privacy, safety, reliability, and accessibility regulatory compliance. We'll only provide OAuth access to big companies that can't reasonablely move to our managed app platform.
+
+
 ## Y Combinator application
 
 DataAbout.me
@@ -139,10 +142,6 @@ Please tell us something surprising or amusing that one of you has discovered.
 (The answer need not be related to your project.)
 
 That you can get a job by DDOSing the Seattle Police Department with records requests.
-
-
-
-It will offer a browser plugin to autofill fields and archive web history and webpages. It will offer third parties OAuth permissions to those who pass our security and privacy review process. To solve the problem where app developers are harvesting data from sites, like Facebook via OAuth, and selling it, we'll provide a secure managed app platform where personal data is never disclosed to the app maker and we're responsible for security, privacy, safety, reliability, and accessibility regulatory compliance. We'll only provide OAuth access to big companies that can't reasonablely move to our managed app platform.
 
 ## Founding developer Tim Clemans
 
