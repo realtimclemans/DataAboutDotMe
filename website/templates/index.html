@@ -31,7 +31,7 @@ We sent you a verification email.<br/>
         {% if not is_captcha_valid %}<strong>Error:</strong> You did not pass the not a robot test<br/>{% endif %}
         {% if is_plus_sign_in_email %}<strong>Error:</strong> You can't have the Gmail + sign in your email<br/>{% endif %}
 
-        {% if is_email_address_invalid %}<strong>Error:</strong> Email address is invalid<br/>{% endif %}
+        {% if not is_email_address_invalid %}<strong>Error:</strong> Email address is invalid<br/>{% endif %}
          <strong>{{ signup_form.email_address.label }}:</strong>
          {{ signup_form.email_address }} <strong>Note:</strong> We do not allow the use of Gmail's + sign because we have to ensure only one account per email:
          <ul> 
