@@ -1,3 +1,4 @@
+# source ../dataaboutdotmekeys.sh;python3 -m opendata_website.scripts.insert_washington_state_voters /users/Tim/Desktop/code/wavoters/wavoters.json
 import requests
 import os
 from flask import Flask, request, jsonify, render_template, request, send_from_directory
@@ -66,7 +67,10 @@ class WashingtonStateVoter(db.Model):
     precinct_part = db.Column(db.String())
     legislative_district = db.Column(db.String())
     congressional_district = db.Column(db.String())
-    mail = db.Column(db.String())
+    mail1 = db.Column(db.String())
+    mail2 = db.Column(db.String())
+    mail3 = db.Column(db.String())
+    mail4 = db.Column(db.String())
     mail_city = db.Column(db.String())
     mail_zip = db.Column(db.String())
     mail_state = db.Column(db.String())
@@ -76,42 +80,42 @@ class WashingtonStateVoter(db.Model):
     last_voted = db.Column(db.String())
     status_code = db.Column(db.String())
 
-    def __init__(self, state_voter_id, fname, mname, lname, name_suffix, birthdate, gender, reg_st_num, reg_st_frac, reg_st_name, reg_st_type, reg_unit_type, reg_st_pre_direction, reg_st_post_direction, reg_st_unit_num, reg_city, reg_state, reg_zip_code, county_code, precinct_code, precinct_part, legislative_district, congressional_district, mail, mail_city, mail_zip, mail_state, mail_country, registrationdate, absentee_type, last_voted, status_code):
-        state_voter_id = state_voter_id
-        fname = fname
-        mname = mname
-        lname = lname
-        name_suffix = name_suffix
-        birthdate = birthdate
-        gender = gender
-        reg_st_num = reg_st_num
-        reg_st_frac = reg_st_frac
-        reg_st_name = reg_st_name
-        reg_st_type = reg_st_type
-        reg_unit_type = reg_unit_type
-        reg_st_pre_direction = reg_st_pre_direction
-        reg_st_post_direction = reg_st_post_direction
-        reg_st_unit_num = reg_st_unit_num
-        reg_city = reg_city
-        reg_state = reg_state
-        reg_zip_code = reg_zip_code
-        county_code = county_code
-        precinct_code = precinct_code
-        precinct_part = precinct_part
-        legislative_district = legislative_district
-        congressional_district = congressional_district
-        mail = mail
-        mail = mail
-        mail = mail
-        mail = mail
-        mail_city = mail_city
-        mail_zip = mail_zip
-        mail_state = mail_state
-        mail_country = mail_country
-        registrationdate = registrationdate
-        absentee_type = absentee_type
-        last_voted = last_voted
-        status_code = status_code    
+    def __init__(self,state_voter_id, fname, mname, lname, name_suffix, birthdate, gender, reg_st_num, reg_st_frac, reg_st_name, reg_st_type, reg_unit_type, reg_st_pre_direction, reg_st_post_direction, reg_st_unit_num, reg_city, reg_state, reg_zip_code, county_code, precinct_code, precinct_part, legislative_district, congressional_district, mail1, mail2, mail3, mail4, mail_city, mail_zip, mail_state, mail_country, registrationdate, absentee_type, last_voted, status_code):
+        self.state_voter_id = state_voter_id
+        self.fname = fname
+        self.mname = mname
+        self.lname = lname
+        self.name_suffix = name_suffix
+        self.birthdate = birthdate
+        self.gender = gender
+        self.reg_st_num = reg_st_num
+        self.reg_st_frac = reg_st_frac
+        self.reg_st_name = reg_st_name
+        self.reg_st_type = reg_st_type
+        self.reg_unit_type = reg_unit_type
+        self.reg_st_pre_direction = reg_st_pre_direction
+        self.reg_st_post_direction = reg_st_post_direction
+        self.reg_st_unit_num = reg_st_unit_num
+        self.reg_city = reg_city
+        self.reg_state = reg_state
+        self.reg_zip_code = reg_zip_code
+        self.county_code = county_code
+        self.precinct_code = precinct_code
+        self.precinct_part = precinct_part
+        self.legislative_district = legislative_district
+        self.congressional_district = congressional_district
+        self.mail1 = mail1
+        self.mail2 = mail2
+        self.mail3 = mail3
+        self.mail4 = mail4
+        self.mail_city = mail_city
+        self.mail_zip = mail_zip
+        self.mail_state = mail_state
+        self.mail_country = mail_country
+        self.registrationdate = registrationdate
+        self.absentee_type = absentee_type
+        self.last_voted = last_voted
+        self.status_code = status_code
 
 if __name__ == "__main__":
     app.run(port=6000, debug=True)
