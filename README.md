@@ -3,6 +3,7 @@ Started by [The Real Tim Clemans Startup Launch Company](https://realtimclemans.
 
 It will offer a browser plugin to autofill fields and archive web history and webpages. It will offer third parties OAuth permissions to those who pass our security and privacy review process. To solve the problem where app developers are harvesting data from sites, like Facebook via OAuth, and selling it, we'll provide a secure managed app platform where personal data is never disclosed to the app maker and we're responsible for security, privacy, safety, reliability, and accessibility regulatory compliance. We'll only provide OAuth access to big companies that can't reasonablely move to our managed app platform.
 
+For accessibility we'll allow people unable to memorize a hard to guess password the option of using their fingerprint as the encryption key. However it's a major concern that the customer won't be protected from court orders for the data. See https://realtimclemans.com/excellent-review-by-reddit-user-first_strike_610-of-dataabout-me-concept-pointing-out-that-requiring-users-to-memorize-hard-to-guess-passwords-is-an-accessibility-nightmare-for-those-with-severe-memor/ for the review that prompted this.
 
 ## Y Combinator application
 
