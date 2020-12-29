@@ -7,3 +7,4 @@ Flask-Script
 azure-cognitiveservices-vision-computervision
 Pillow
 azure-cognitiveservices-vision-face
+outlook_msg
