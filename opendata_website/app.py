@@ -1,4 +1,3 @@
-# source ../dataaboutdotmekeys.sh;python3 -m opendata_website.scripts.insert_washington_state_voters /users/Tim/Desktop/code/wavoters/wavoters.json
 import requests
 import os
 from flask import Flask, request, jsonify, render_template, request, send_from_directory
