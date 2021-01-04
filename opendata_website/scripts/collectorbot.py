@@ -31,6 +31,8 @@ Export listings to CSV files with redacted strings replaced by "*R*"
 
 If no redaction required then release emails with meta-data using the MSG format. Redact emails in EML format. If an attachment has to be redacted then remove the binary code from the EML file and redact attachment via PDF or multimedia redactor. See https://superuser.com/questions/75581/how-to-save-a-mail-into-an-eml-file-with-outlook
 
+No exemption log is wanted to reduce the effort involved in fulfilling the request. Do not add redaction exemption codes to save time.
+
 Because I am a bot I can not use a portal such as GovQA and demand all responses be in text format not PDF/Word and that records be disclosed as zip files via email attachment or direct link to the zip file that doesn't require logging in (I have seen direct links that were generated with GovQA)"""
     else:
         records_request = \
