@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import os
+from datetime import date
 
 agencies = [{'name': 'City of Kirkland',
             'accepts_the_multi_item_daily_bot_pdr': True,
@@ -12,6 +13,9 @@ agencies = [{'name': 'City of Kirkland',
             {'name': "King County Sheriff's Office",
             'accepts_the_multi_item_daily_bot_pdr': True,
             'emails': ['kimberly.petty@kingcounty.gov']},
+            {'name': 'Kitsap 911',
+            'accepts_the_multi_item_daily_bot_pdr': True,
+            'emails': ['kitsap911_PDR@kitsap911.org']},
             {'name': 'Valley Communications Center',
             'accepts_the_multi_item_daily_bot_pdr': False,
             'emails': ['recordsrequest@valleycom.org']}]
@@ -80,14 +84,16 @@ If no redaction required then release emails with meta-data using the MSG format
 No exemption log is wanted to reduce the effort involved in fulfilling the request. Do not add redaction exemption codes to save time.
 
 """
+    today = date.today()
+    today = today.strftime("%d/%m/%Y")
     request = requests.post('https://api.mailgun.net/v3/%s/messages'
                             % os.getenv('API_EMAIL_DOMAIN_NAME'),
                             auth=('api', '%s'
                             % os.getenv('MAILGUN_API_KEY')), data={
         'from': 'CollectorBot <collectorbot@dataabout.me>',
         'to': agency['emails'] + ['collectorbot@dataabout.me'],
-        'subject': 'For %s Daily CollectorBot Records Request'
-            % agency['name'],
-        'text': 'Dear %s,\n%s' % (agency['name'], records_request),
+        'subject': 'For %s For %s Daily CollectorBot Records Request' 
+            % (today, agency['name']),
+        'text': 'For %s\n\nDear %s,\n%s' % (today, agency['name'], records_request),
         }).text
     print(request)
