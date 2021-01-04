@@ -60,10 +60,10 @@ If no redaction required then release emails with meta-data using the MSG format
 * All already-electronic investigative records for all swatting, DUIs, violent crimes, child abuse, and sexual crimes, police chases that occured on or after December 29, 2020
 * Yesterday's already electronic misconduct investigative records for all departments
 * The IAPro SQL database exported to CSV with redacted strings replaced by "*R*"
-* All courts' SQL data exported CSV with redacted strings replaced by "*R*"
+* All courts' SQL data exported to CSV with redacted strings replaced by "*R*"
 * Yesterday's public records requests, communications with meta-data about records requests, and released records
 * For yesterday: SMS/text messages with meta-data of all executive staff and PIOs (see https://www.ecamm.com/mac/phoneview/ and https://www.nickshertzer.com/?p=1768) to CSV with redacted strings replaced by "*R*"
-* All listings of employee data and associated listings exported to CSV with redacted strings replaced by "*R*" For each redacted person I request their last email, see "do not include work product created by the agency employee as part of his or her official duties." https://app.leg.wa.gov/RCW/default.aspx?cite=42.56.660
+* All listings of employee data (current and past employees as far back as you have in electronic listing format) and associated listings exported to CSV with redacted strings replaced by "*R*" For each redacted person I request their last email, see "do not include work product created by the agency employee as part of his or her official duties." https://app.leg.wa.gov/RCW/default.aspx?cite=42.56.660
 * Axon SQL database for all products your agency uses. There's a lot of data they aren't providing via the report downloads page like audit trail data
 * All automatic license plate reader textual data exported to CSV with redacted strings replaced by "*R*"
 * All police automatic vehicle location data 30 minutes after start of shift to 30 minutes before ending of shift and excluding the time responding to or at a dispatch event to 10 minutes after the event
