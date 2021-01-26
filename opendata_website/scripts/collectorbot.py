@@ -18,7 +18,10 @@ agencies = [{'name': 'City of Kirkland',
             'emails': ['kitsap911_PDR@kitsap911.org']},
             {'name': 'Valley Communications Center',
             'accepts_the_multi_item_daily_bot_pdr': False,
-            'emails': ['recordsrequest@valleycom.org']}]
+            'emails': ['recordsrequest@valleycom.org']},
+            {'name': 'Seattle Public Schools',
+            'accepts_the_multi_item_daily_bot_pdr': True,
+            'emails': ['publicrecords@seattleschools.org']}]
 
 for agency in agencies:
     if not agency['accepts_the_multi_item_daily_bot_pdr']:
@@ -48,8 +51,10 @@ I demand all records be electronically redacted. Absolutely do not print out or 
 
 If no redaction required then release emails with meta-data using the MSG format. Redact emails in EML format. If an attachment has to be redacted then remove the binary code from the EML file and redact attachment via PDF or multimedia redactor. See https://superuser.com/questions/75581/how-to-save-a-mail-into-an-eml-file-with-outlook
 
-* Every already electronic with meta-data record received by or created by Toby Nixon after December 20, 2020. See https://recordsbased.news/dinosaur-toby-nixon-a-republican-kirkland-washington-council-member-president-of-the-the-washington-coalition-for-open-government-said-you-will-be-shut-down-mark-my-words-lets-prove-him-wron/
-* For each year data is available for your Fire/EMS agency's CARES Utstein Survival Report, note DC FEMS published their's at https://fems.dc.gov/page/cardiac-arrest and Evrett published their 2018 report at https://everettwa.gov/DocumentCenter/View/20541/Everett-Fire-2018-CARES-Summary-and-Utstein-Survival-Report
+"""
+        if agency['Name'] == 'City of Kirkland':
+            records_request += "* Every already electronic with meta-data record received by or created by Toby Nixon after December 20, 2020."
+        records_request += """* For each year that data is available for your, I request your Fire/EMS agency's CARES Utstein Survival Report, note DC FEMS published their's at https://fems.dc.gov/page/cardiac-arrest and Evrett published their 2018 report at https://everettwa.gov/DocumentCenter/View/20541/Everett-Fire-2018-CARES-Summary-and-Utstein-Survival-Report
 * For yesterday for city attorney's office [if you're a city] or county prosecutor's office [if you're a county]: All cases charged yesterday with all already-electronic investigative records
 * For yesterday the police/FIRE/EMS 911 text log, dispatch events, remarks, and individual unit dispatch tables exported to CSV with redacted strings replaced by "*R*"
 * For yesterday all police reports, accident reports, citations from all departments including code enforcement and law enforcement
@@ -87,7 +92,7 @@ No exemption log is wanted to reduce the effort involved in fulfilling the reque
 
 """
     today = date.today()
-    today = today.strftime("%d/%m/%Y")
+    today = today.strftime("%m/%d/%Y")
     request = requests.post('https://api.mailgun.net/v3/%s/messages'
                             % os.getenv('API_EMAIL_DOMAIN_NAME'),
                             auth=('api', '%s'
